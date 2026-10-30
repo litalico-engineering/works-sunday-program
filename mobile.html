@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f6f3">
+  <title>面接練習をはじめる｜日曜プログラムワーク</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="mobile">
+    <header><a class="brand" href="./mobile.html">日曜プログラムワーク<span>AI活用講座・面接練習</span></a><span class="badge">スマホ用</span></header>
+    <div class="eyebrow">声に出して、少しずつ。</div>
+    <h1><span class="mk">いつものAIで、</span><br><span class="mk">面接の練習を。</span></h1>
+    <p class="lead">練習用の指示をコピーして、普段使っているAIに貼り付けます。長い文章を読む必要はありません。</p>
+    <div class="tags"><span>音声で練習</span><span>途中で休止OK</span><span>パスもOK</span></div>
+
+    <section class="panel" aria-labelledby="step0">
+      <div class="step-label">STEP 01</div>
+      <h2 id="step0">練習のしかたを選ぶ</h2>
+      <p>迷ったら、そのまま「基本の面接」でOKです。</p>
+      <fieldset class="choices">
+        <legend class="sr-only" style="position:absolute;left:-9999px">練習のしかた</legend>
+        <div class="choice">
+          <input type="radio" name="mode" id="m-basic" value="basic" checked>
+          <label for="m-basic"><b>基本の面接<span class="tag default">おすすめ</span></b><small>基本の質問を5問。最後に振り返りがあります。</small></label>
+        </div>
+        <div class="choice">
+          <input type="radio" name="mode" id="m-deep" value="deep">
+          <label for="m-deep"><b>深掘りありの面接<span class="tag">動作確認中</span></b><small>お答えに合わせて、追加の質問があります。</small></label>
+        </div>
+        <div class="choice">
+          <input type="radio" name="mode" id="m-single" value="single">
+          <label for="m-single"><b>1つの質問だけ練習<span class="tag">動作確認中</span></b><small>練習したい質問を1つ選んで、じっくり練習します。</small></label>
+        </div>
+        <div class="choice">
+          <input type="radio" name="mode" id="m-real" value="real">
+          <label for="m-real"><b>本番を想定した面接<span class="tag">動作確認中</span></b><small>途中の助言なしで、最後に質問の時間もあります。</small></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="panel" aria-labelledby="step1">
+      <div class="step-label">STEP 02</div>
+      <h2 id="step1">練習用の指示をコピー</h2>
+      <p>ボタンを押すと、指示の全文をまとめてコピーできます。</p>
+      <button id="copy" class="primary" type="button">練習用の指示をコピー</button>
+      <p id="copy-status" class="status" role="status" aria-live="polite">このページに回答を入力する必要はありません。</p>
+      <div id="manual" hidden><p>自動コピーが使えない場合は、下の文章を長押しして「すべて選択」→「コピー」を選んでください。</p><textarea id="manual-text" readonly aria-label="手動コピー用の練習指示"></textarea></div>
+    </section>
+
+    <section class="panel" aria-labelledby="step2">
+      <div class="step-label">STEP 03</div>
+      <h2 id="step2">AIの新しい会話に貼り付ける</h2>
+      <p>ChatGPTのアプリを開き、新しい会話の入力欄を長押しして「ペースト」または「貼り付け」を選び、送信してください。</p>
+      <div class="note">Geminiなど、使い慣れたAIでも大丈夫です。ログインが必要な場合は、先に済ませてください。</div>
+    </section>
+
+    <section class="panel" aria-labelledby="step3">
+      <div class="step-label">STEP 04</div>
+      <h2 id="step3">同じ会話で、音声の練習へ</h2>
+      <p>指示を送信した会話で音声会話を開始し、AIの案内に沿って話してください。音声機能の操作や利用条件は、使うサービスによって異なります。</p>
+      <div class="warn">声を出したくないときは、そのまま文字で答えてもOKです。</div>
+    </section>
+
+    <aside class="comfort"><strong>自分のペースで大丈夫です。</strong><p>本名や会社名は仮名でかまいません。答えたくない質問はパスでき、いつでも「待って」「終了」と伝えられます。</p></aside>
+    <details><summary>練習用の指示を確認する <span id="ver">Ver.1.2</span></summary><pre id="prompt-preview"></pre></details>
+    <footer>このページにはAIとの会話機能はありません。<br>入力内容の取り扱いは、利用するAIサービスの規約・設定をご確認ください。</footer>
+  </main>
+  <script src="prompt.js"></script><script src="common.js"></script><script src="app.js"></script>
+</body>
+</html>
