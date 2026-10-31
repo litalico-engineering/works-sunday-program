@@ -12,5 +12,3 @@
 | `mobile.html` | スマホ用の面接練習ページ。QRコードから `?mode=basic` などで開く |
 
 `qr-*.svg` は `mobile.html?mode=<basic|deep|single|real>` を指す QR コードです。公開URLを変えたときは作り直してください。
-
-元は [litalico-engineering/ai-hq-issues](https://github.com/litalico-engineering/ai-hq-issues) の `works_2026h2_sunday-program/ai-hq-issues_site` にあったファイルです。
