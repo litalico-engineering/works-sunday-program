@@ -40,7 +40,8 @@ copyBtn.addEventListener('click', async () => {
 
 // PC画面のQRから開いたとき、選んだ種類を最初から選んでおく
 const initial = new URLSearchParams(location.search).get('mode');
-const initialRadio = initial && document.querySelector('input[name="mode"][value="' + initial + '"]');
+// 値をセレクターに埋め込まず、用意した選択肢と一致するものだけを選ぶ
+const initialRadio = Array.from(document.querySelectorAll('input[name="mode"]')).find(r => r.value === initial);
 if (initialRadio) initialRadio.checked = true;
 
 refresh();
