@@ -341,3 +341,45 @@ ol.checks li::before { content: counter(s); display: inline-grid; place-items: c
 .timer-msg { flex-basis: 100%; font-weight: 800; color: var(--accent-btn); font-size: 14px; }
 .timer.done { background: var(--amber-soft); border-color: var(--amber); }
 .timer.done .timer-time { color: var(--amber); }
+
+/* 進行バー（①日常編 → ②就活編）。画面上部に固定 */
+.sr-only { position: absolute; left: -9999px; }
+.progress { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 10px; margin: 0 0 12px; padding: 8px 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.progress a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); border: 2px solid var(--line); background: var(--card); padding: 6px 18px; border-radius: 999px; font-size: 16px; font-weight: 700; }
+.progress a .n { font-size: 18px; }
+.progress a:hover { border-color: var(--green); }
+.progress a[aria-current="step"] { background: var(--green); border-color: var(--green); color: #fff; }
+@media (prefers-color-scheme: dark) { .progress a[aria-current="step"] { color: #0d1a14; } }
+.progress .arrow { color: var(--sub); font-weight: 700; }
+header { flex-wrap: wrap; gap: 8px; }
+
+/* ワーク①の終わり：次のワークへ */
+.next-work { display: block; margin: 16px 0 0; padding: 14px 18px; text-align: center; text-decoration: none; font-weight: 700; font-size: 18px; border-radius: 12px; background: var(--green-soft); color: var(--green-deep); border: 2px solid var(--green); }
+.next-work:hover { background: var(--green); color: #fff; }
+
+/* コピーのあと：AIを開く */
+.ai-open { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--green-soft); }
+.ai-open-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.ai-link { flex: 1 1 140px; text-align: center; text-decoration: none; font-weight: 700; padding: 10px 12px; border-radius: 10px; border: 2px solid var(--green); background: var(--card); color: var(--green-deep); }
+.ai-link:hover { background: var(--green); color: #fff; }
+.ai-open-note { margin: 8px 0 0; font-size: 13px; color: var(--sub); line-height: 1.6; }
+
+/* 面接練習：種類の折りたたみ・スマホ／PC切り替え・環境の案内 */
+.more-modes { margin-top: 6px; padding: 6px 12px; font-size: 14px; }
+.more-modes-list { display: grid; gap: 6px; margin-top: 8px; }
+.env-note { margin: 8px 0; padding: 8px 12px; border-radius: 10px; background: var(--green-soft); font-size: 14px; line-height: 1.7; }
+.env-note p { margin: 2px 0; }
+.check-fold { margin-top: 10px; padding: 6px 12px; font-size: 14px; }
+
+/* 自習ガイド */
+.safety { margin: 8px 0 10px; padding: 10px 14px; border-radius: 12px; background: var(--amber-soft); border-left: 6px solid var(--amber); }
+.safety h4 { font-size: 15px; margin: 0 0 4px; }
+.safety ol { margin: 0; padding-left: 1.4em; line-height: 1.6; font-size: 14px; }
+.safety li b { margin-right: 4px; }
+.pc-pane { margin-bottom: 10px; }
+.pc-pane .warn { margin-top: 10px; font-size: 13px; }
+.logout-note { font-weight: 700; color: var(--ink); }
+.pc-steps { margin: 4px 0 10px; padding-left: 1.4em; font-size: 14px; line-height: 1.7; }
+.voice-fold { margin: 10px 0; padding: 6px 12px; font-size: 14px; }
+.voice-fold .how { margin: 8px 0; }
+@media (max-width: 760px) { .interview-wrap { grid-template-columns: 1fr; } .progress a { padding: 6px 12px; font-size: 15px; } }

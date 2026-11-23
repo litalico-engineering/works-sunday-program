@@ -18,25 +18,7 @@
       <div class="step-label">STEP 01</div>
       <h2 id="step0">練習のしかたを選ぶ</h2>
       <p>迷ったら、そのまま「基本の面接」でOKです。</p>
-      <fieldset class="choices">
-        <legend class="sr-only" style="position:absolute;left:-9999px">練習のしかた</legend>
-        <div class="choice">
-          <input type="radio" name="mode" id="m-basic" value="basic" checked>
-          <label for="m-basic"><b>基本の面接<span class="tag default">おすすめ</span></b><small>基本の質問を5問。最後に振り返りがあります。</small></label>
-        </div>
-        <div class="choice">
-          <input type="radio" name="mode" id="m-deep" value="deep">
-          <label for="m-deep"><b>深掘りありの面接<span class="tag">動作確認中</span></b><small>お答えに合わせて、追加の質問があります。</small></label>
-        </div>
-        <div class="choice">
-          <input type="radio" name="mode" id="m-single" value="single">
-          <label for="m-single"><b>1つの質問だけ練習<span class="tag">動作確認中</span></b><small>練習したい質問を1つ選んで、じっくり練習します。</small></label>
-        </div>
-        <div class="choice">
-          <input type="radio" name="mode" id="m-real" value="real">
-          <label for="m-real"><b>本番を想定した面接<span class="tag">動作確認中</span></b><small>途中の助言なしで、最後に質問の時間もあります。</small></label>
-        </div>
-      </fieldset>
+      <fieldset class="choices" id="choices"></fieldset>
     </section>
 
     <section class="panel" aria-labelledby="step1">
@@ -45,6 +27,7 @@
       <p>ボタンを押すと、指示の全文をまとめてコピーできます。</p>
       <button id="copy" class="primary" type="button">練習用の指示をコピー</button>
       <p id="copy-status" class="status" role="status" aria-live="polite">このページに回答を入力する必要はありません。</p>
+      <div id="ai-open-area"></div>
       <div id="manual" hidden><p>自動コピーが使えない場合は、下の文章を長押しして「すべて選択」→「コピー」を選んでください。</p><textarea id="manual-text" readonly aria-label="手動コピー用の練習指示"></textarea></div>
     </section>
 
@@ -63,9 +46,11 @@
     </section>
 
     <aside class="comfort"><strong>自分のペースで大丈夫です。</strong><p>本名や会社名は仮名でかまいません。答えたくない質問はパスでき、いつでも「待って」「終了」と伝えられます。</p></aside>
+    <div id="env-note-area"></div>
     <details><summary>練習用の指示を確認する <span id="ver">Ver.1.2</span></summary><pre id="prompt-preview"></pre></details>
     <footer>このページにはAIとの会話機能はありません。<br>入力内容の取り扱いは、利用するAIサービスの規約・設定をご確認ください。</footer>
   </main>
   <script src="prompt.js"></script><script src="common.js"></script><script src="app.js"></script>
+  <script>document.getElementById('env-note-area').appendChild(buildEnvNote(true));</script>
 </body>
 </html>

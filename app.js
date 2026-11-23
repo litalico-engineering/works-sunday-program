@@ -1,10 +1,16 @@
+// スマホ用ページ（mobile.html）。QRから開くと ?mode=basic などで種類を選んだ状態になる
 const copyBtn = document.getElementById('copy');
 const status = document.getElementById('copy-status');
 const manualBox = document.getElementById('manual');
+const aiArea = document.getElementById('ai-open-area');
 const DEFAULT_LABEL = '練習用の指示をコピー';
 
+// 種類の選択肢は prompt.js の定義から作る（値は用意した種類だけ）
+const modeFs = document.getElementById('choices');
+buildModeChoices(modeFs, modeFromQuery());
+
 function current() {
-  const key = document.querySelector('input[name="mode"]:checked').value;
+  const key = modeFs.querySelector('input:checked').value;
   return window.INTERVIEW_PROMPTS[key];
 }
 
@@ -18,30 +24,27 @@ function refresh() {
   status.textContent = 'このページに回答を入力する必要はありません。';
   status.className = 'status';
   manualBox.hidden = true;
+  aiArea.replaceChildren();
 }
 
-document.querySelectorAll('input[name="mode"]').forEach(r => r.addEventListener('change', refresh));
+modeFs.addEventListener('change', refresh);
 
 copyBtn.addEventListener('click', async () => {
   const p = current();
   const ok = await copyText(p.text);
+  aiArea.replaceChildren();
   if (ok) {
     copyBtn.textContent = '✓ コピーしました（' + p.label + '）';
     copyBtn.classList.add('copied');
-    status.textContent = '次は、普段使うAIを開いて貼り付けてください。';
+    status.textContent = '次は、AIを開いて貼り付けてください。';
     status.className = 'status success';
     manualBox.hidden = true;
+    aiArea.appendChild(aiOpenLinks());
   } else {
     status.textContent = '自動コピーが使えません。下の文章からコピーしてください。';
     status.className = 'status';
     manualBox.hidden = false;
   }
 });
-
-// PC画面のQRから開いたとき、選んだ種類を最初から選んでおく
-const initial = new URLSearchParams(location.search).get('mode');
-// 値をセレクターに埋め込まず、用意した選択肢と一致するものだけを選ぶ
-const initialRadio = Array.from(document.querySelectorAll('input[name="mode"]')).find(r => r.value === initial);
-if (initialRadio) initialRadio.checked = true;
 
 refresh();

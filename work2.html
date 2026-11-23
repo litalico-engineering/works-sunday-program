@@ -9,11 +9,12 @@
   <main class="work">
     <header>
       <a class="brand" href="./">日曜プログラムワーク<span>AI活用講座</span></a>
-      <nav class="jump" aria-label="ワークの切り替え">
-        <a href="work1.html">ワーク①</a>
-        <a href="work2.html" aria-current="page">ワーク②</a>
-      </nav>
     </header>
+    <nav class="progress" aria-label="ワークの進行">
+      <a href="work1.html"><span class="n">①</span>日常編</a>
+      <span class="arrow" aria-hidden="true">→</span>
+      <a href="work2.html" aria-current="step"><span class="n">②</span>就活編</a>
+    </nav>
     <h1><span class="mk" id="heading"></span></h1>
     <p class="lead" id="lead"></p>
     <div class="warn">本名・住所・電話番号・パスワードなどは入力しません。会社名や自分の情報は、「私」「〇〇会社」に置きかえます。</div>
@@ -21,6 +22,6 @@
     <div id="panel" role="tabpanel"></div>
     <footer>このページにはAIとの会話機能はありません。入力内容の取り扱いは、利用するAIサービスの規約・設定をご確認ください。</footer>
   </main>
-  <script src="prompt.js"></script><script src="common.js"></script><script src="work.js"></script>
+  <script src="prompt.js"></script><script src="common.js"></script><script src="interview.js"></script><script src="work.js"></script>
 </body>
 </html>
